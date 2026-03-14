@@ -1,24 +1,27 @@
-const rows = 5;
+// total rows in the pattern
+const TOTAL_ROWS = 5;
 
-for (let i = 0; i < rows; i++) {
+for (let i = 0; i < TOTAL_ROWS; i++) {
 
-    let line = "";
+    let output = "";
 
-    // spaces before numbers
+    // print leading spaces
     for (let s = 0; s < i; s++) {
-        line += " ";
+        output += " ";
     }
 
-    let num = 1;
-    let limit = rows - i;
+    // numbers in current row
+    let numbers = TOTAL_ROWS - i;
 
-    for (let j = 0; j < limit; j++) {
+    for (let j = 0; j < numbers; j++) {
 
-        line += num + " ";
-
-        // calculate next value using Pascal logic
-        num = num * (limit - j - 1) / (j + 1);
+        if (j === 0 || j === numbers - 1) {
+            output += "1 ";
+        } 
+        else {
+            output += (numbers - 1) + " ";
+        }
     }
 
-    console.log(line.trim());
+    console.log(output.trim());
 }
